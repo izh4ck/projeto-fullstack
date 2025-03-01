@@ -1,0 +1,21 @@
+// express é a biblioteca que gerencia as minhas rotas, depois de instalar (npm i express) eu importo no servidor.
+import express from 'express'
+
+// essa variável chamada app vai receber todos os métodos do express. poderia ter outro nome, mas app é meio q padrão
+const app = express()
+
+// exemplo de criação de rota do método GET que irá retornar essa mensagem do silvio santos 
+app.get('/usuarios', (req,res) => {res.send('má ôe hihi')});
+
+
+app.post('/usuarios', (req,res) => {res.send('vem pra cá *2')});
+
+// app.put()
+
+// app.delete()
+
+// o servidor irá escutar a porta indicada, nesse caso 8080
+app.listen(8080);
+
+// para executar, no terminal eu digito: node server.js
+// no navegador, o endereço é http://localhost:8080
