@@ -1,4 +1,4 @@
-function enviarDados() {
+function enviarDados(nome) {
 
     
 const dados = {
@@ -17,13 +17,15 @@ const dados = {
         .then(response => {
             console.log('Dados enviados com sucesso:', response.data);
             alert('Dados enviados com sucesso!');
-            limparFormulario();
+        
         })
         .catch(error => {
    
             console.error('Erro ao enviar dados:', error);
             alert('Erro ao enviar dados.');
         });
+
+        limparFormulario(nome);
 }
 
 async function consultar()
@@ -36,10 +38,26 @@ async function consultar()
         const response = await axios.get('http://localhost:8080/posts'); // Substitua '/api/posts' pela URL da sua API
         const posts = response.data; // Os dados da API estão em response.data
     
-        const tableBody = document.querySelector('#tabela_livro tbody');
+        const tableBody = document.querySelector('#tabela_livro');
     
         // Limpa a tabela antes de adicionar novos dados
         tableBody.innerHTML = '';
+
+
+            // Cria o cabeçalho da tabela
+    const tableHeader = document.createElement('thead');
+    tableHeader.innerHTML = `
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Gênero</th>
+        <th>Autor</th>
+        <th>Ano</th>
+        <th>Nota</th>
+        <th>Resenha</th>
+      </tr>
+    `;
+    document.querySelector('#tabela_livro').prepend(tableHeader);
     
         // Adiciona cada post à tabela
         posts.forEach(post => {
@@ -62,12 +80,12 @@ async function consultar()
     
     // Chama a função listarPosts quando a página é carregada
     window.onload = consultar;
-
+    
 }
 
 function limparFormulario(nome)
 {
     document.getElementById(nome).reset();
 
-    document.querySelector('#tabela_livro tbody').innerHTML = '';
+    document.querySelector('#tabela_livro').innerHTML = '';
 }

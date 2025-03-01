@@ -67,8 +67,10 @@ form {
 
   
   table {
-    width: 100%;
+    width: 95%;
     border-collapse: collapse;
+    display: block;
+    margin: 0 auto;
   }
   
   th, td {
