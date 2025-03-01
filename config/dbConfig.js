@@ -1,3 +1,5 @@
+// arquivo de conexão com banco de dados
+
 import { MongoClient } from 'mongodb';
 
 export default async function conectarAoBanco(stringConexao) {
