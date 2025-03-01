@@ -12,8 +12,27 @@
 <body>
     
 <h1>Pesquisar livro</h1>
-
+<form id="pesquisa">
 Titulo: <input type="text" id="titulo" /> <button type="button" onclick="consultar()"> Consultar </button>
+<button type="button" onclick="limparFormulario('pesquisa')">Limpar</button>
+</form>
+
+<table id="tabela_livro">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Genero</th>
+        <th>autor</th>
+        <th>Ano</th>
+        <th>Nota</th>
+        <th>Resenha</th>
+      </tr>
+   
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 
 
 
