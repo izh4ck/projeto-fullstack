@@ -26,19 +26,46 @@ const dados = {
         });
 }
 
-function limparFormulario()
+async function consultar()
 {
+    // alert("em desenvolvimento");
 
-    document.getElementById('titulo').value="";
-    document.getElementById('genero').value="";
-    document.getElementById('autor').value="";
-    document.getElementById('ano').value="";
-    document.getElementById('nota').value="";
-    document.getElementById('resenha').value="";
+    // const titulo=document.getElementById('titulo').value;
+  
+    try {
+        const response = await axios.get('http://localhost:8080/posts'); // Substitua '/api/posts' pela URL da sua API
+        const posts = response.data; // Os dados da API estão em response.data
+    
+        const tableBody = document.querySelector('#tabela_livro tbody');
+    
+        // Limpa a tabela antes de adicionar novos dados
+        tableBody.innerHTML = '';
+    
+        // Adiciona cada post à tabela
+        posts.forEach(post => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${post._id}</td>
+            <td>${post.titulo}</td>
+            <td>${post.genero}</td>
+            <td>${post.autor}</td>
+            <td>${post.ano}</td>
+            <td>${post.nota}</td>
+            <td>${post.resenha}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      } catch (error) {
+        console.error('Erro ao listar posts:', error);  
+      }
+    
+    
+    // Chama a função listarPosts quando a página é carregada
+    window.onload = consultar;
 
 }
 
-function consultar()
+function limparFormulario(nome)
 {
-    alert("em desenvolvimento");
+    document.getElementById(nome).reset();
 }
