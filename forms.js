@@ -37,3 +37,8 @@ function limparFormulario()
     document.getElementById('resenha').value="";
 
 }
+
+function consultar()
+{
+    alert("em desenvolvimento");
+}
