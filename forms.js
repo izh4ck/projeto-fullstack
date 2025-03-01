@@ -68,4 +68,6 @@ async function consultar()
 function limparFormulario(nome)
 {
     document.getElementById(nome).reset();
+
+    document.querySelector('#tabela_livro tbody').innerHTML = '';
 }
