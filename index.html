@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro de Livros</title>
 
     <script src="./forms.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -18,8 +18,11 @@ Genero: <input type="text" id="genero"> <br />
 Autor: <input type="text" id="autor"> <br />
 Ano: <input type="number" id="ano"> <br />
 Nota: <input type="number" id="nota"> <br />
+Resenha: <input type="text" id="resenha"> <br />
 
-<p><button type="button" onclick="enviarDados()">enviar</button></p>
+<p><button type="button" onclick="enviarDados()">enviar</button>
+    <button type="button" onclick="limparFormulario()">Limpar</button>
+</p>
 
 
     </form>
